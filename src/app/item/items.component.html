@@ -1,0 +1,27 @@
+<ActionBar title="My App"> </ActionBar>
+
+<GridLayout>
+  <StackLayout>
+    <FlexboxLayout
+      flexDirection="column-reverse"
+      justifyContent="space-around"
+      height="70"
+    >
+      <Label
+        alignSelf="center"
+        text="Who's the best football player in the world ?"
+      ></Label>
+    </FlexboxLayout>
+    <progress [value]="counter" maxValue="30"></progress>
+    <ListView [items]="items">
+      <ng-template let-item="item">
+        <FlexboxLayout alignItems="center" justifyContent="space-between">
+          <Label [text]="item.name"></Label>
+          <Label [text]="item.note"></Label>
+        </FlexboxLayout>
+      </ng-template>
+    </ListView>
+    <Button text="Go" (tap)="myfunc($event)" class="my-button"></Button>
+    <Button text="ScoreBoard" class="my-button"></Button>
+  </StackLayout>
+</GridLayout>
