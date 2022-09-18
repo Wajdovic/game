@@ -22,6 +22,11 @@
       </ng-template>
     </ListView>
     <Button text="Go" (tap)="myfunc($event)" class="my-button"></Button>
-    <Button text="ScoreBoard" class="my-button"></Button>
+    <Button
+      text="ScoreBoard"
+      [nsRouterLink]="['/score']"
+      pageTransition="slide"
+      class="my-button2"
+    ></Button>
   </StackLayout>
 </GridLayout>
