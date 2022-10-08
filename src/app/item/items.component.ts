@@ -16,7 +16,7 @@ export class ItemsComponent implements OnInit {
     rounds: '',
   };
   gameRes;
-  teams;
+  teams = [];
 
   constructor(private itemService: ItemService) {}
 
@@ -44,7 +44,17 @@ export class ItemsComponent implements OnInit {
         }
       );
     } else if (event == 'team') {
-      console.log(this.teams);
+      for (let team in this.teams) {
+        this.itemService
+          .createTeam({
+            name: this.teams[team],
+            players: '3',
+            game_id: this.gameRes.game_id,
+          })
+          .subscribe((data) => {
+            console.log(data);
+          });
+      }
     }
   }
 }
