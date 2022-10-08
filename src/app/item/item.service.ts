@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 import { Item } from './item';
 
@@ -16,6 +17,11 @@ export class ItemService {
     { id: 8, name: 'Messi', role: 'Midfielder', note: '10' }
   );
 
+  constructor(private http: HttpClient) {}
+
+  launchGame(data) {
+    return this.http.post('http://192.168.1.17:8000/api/v1/games/start', data);
+  }
   getItems(): Array<Item> {
     return this.items;
   }

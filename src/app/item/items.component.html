@@ -1,4 +1,4 @@
-<ActionBar title="My App"> </ActionBar>
+<!-- <ActionBar title="My App"> </ActionBar>
 
 <GridLayout>
   <StackLayout>
@@ -29,4 +29,11 @@
       class="my-button2"
     ></Button>
   </StackLayout>
-</GridLayout>
+</GridLayout> -->
+<StackLayout>
+  <TextField hint="Game name" [(ngModel)]="game.name"> </TextField
+  ><TextField hint="Number of teams" [(ngModel)]="game.number_of_teams">
+  </TextField>
+  <TextField hint="Number of rounds" [(ngModel)]="game.rounds"> </TextField>
+  <Button text="Go" (tap)="launch($event)" class="my-button"></Button>
+</StackLayout>

@@ -10,6 +10,11 @@ import { ItemService } from './item.service';
 export class ItemsComponent implements OnInit {
   items: Array<Item>;
   counter = 0;
+  game = {
+    name: '',
+    number_of_teams: '',
+    rounds: '',
+  };
 
   constructor(private itemService: ItemService) {}
 
@@ -23,5 +28,11 @@ export class ItemsComponent implements OnInit {
       console.log(this.counter);
       if (this.counter === 30) clearInterval(intervalId);
     }, 1000);
+  }
+
+  launchGame(event) {
+    this.itemService.launchGame(this.game).subscribe((data) => {
+      console.log(data);
+    });
   }
 }
