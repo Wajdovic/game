@@ -22,6 +22,9 @@ export class ItemService {
   launchGame(data) {
     return this.http.post('http://192.168.1.17:8000/api/v1/games/start', data);
   }
+  createTeam(data) {
+    return this.http.post('http://192.168.1.17:8000/api/v1/teams/new', data);
+  }
   getItems(): Array<Item> {
     return this.items;
   }

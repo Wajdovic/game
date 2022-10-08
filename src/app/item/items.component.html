@@ -35,18 +35,20 @@
   ><TextField hint="Number of teams" [(ngModel)]="game.number_of_teams">
   </TextField>
   <TextField hint="Number of rounds" [(ngModel)]="game.rounds"> </TextField>
-  <Button text="Go" (tap)="launchGame($event)" class="my-button"></Button>
-</StackLayout>
-
-<StackLayout>
-  <GridLayout
-    columns="100,auto"
-    rows="100,auto"
-    width="210"
-    height="210"
-    backgroundColor="lightgray"
-  >
-    <Label text="Label 1" col="0" row="0" backgroundColor="red"></Label>
-    <TextField hint="Team Name" col="1" row="0"> </TextField>
-  </GridLayout>
+  <Button
+    text="Go"
+    *ngIf="!gameRes"
+    (tap)="launchGame('game')"
+    class="my-button"
+  ></Button>
+  <StackLayout *ngIf="gameRes">
+    <FlexboxLayout
+      flexDirection="row"
+      *ngFor="let item of gameRes.teams; let i = index"
+    >
+      <Label [text]="i"></Label>
+      <TextField hint="Team Name" [(ngModel)]="teams[i]"> </TextField>
+    </FlexboxLayout>
+    <Button text="Go" (tap)="launchGame('team')" class="my-button"></Button>
+  </StackLayout>
 </StackLayout>

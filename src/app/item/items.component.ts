@@ -15,6 +15,8 @@ export class ItemsComponent implements OnInit {
     number_of_teams: '',
     rounds: '',
   };
+  gameRes;
+  teams;
 
   constructor(private itemService: ItemService) {}
 
@@ -31,13 +33,18 @@ export class ItemsComponent implements OnInit {
   }
 
   launchGame(event) {
-    this.itemService.launchGame(this.game).subscribe(
-      (data) => {
-        console.log(data);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
+    if (event == 'game') {
+      this.itemService.launchGame(this.game).subscribe(
+        (data) => {
+          console.log(data);
+          this.gameRes = data;
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    } else if (event == 'team') {
+      console.log(this.teams);
+    }
   }
 }
