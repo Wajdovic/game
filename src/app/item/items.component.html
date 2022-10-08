@@ -35,5 +35,18 @@
   ><TextField hint="Number of teams" [(ngModel)]="game.number_of_teams">
   </TextField>
   <TextField hint="Number of rounds" [(ngModel)]="game.rounds"> </TextField>
-  <Button text="Go" (tap)="launch($event)" class="my-button"></Button>
+  <Button text="Go" (tap)="launchGame($event)" class="my-button"></Button>
+</StackLayout>
+
+<StackLayout>
+  <GridLayout
+    columns="100,auto"
+    rows="100,auto"
+    width="210"
+    height="210"
+    backgroundColor="lightgray"
+  >
+    <Label text="Label 1" col="0" row="0" backgroundColor="red"></Label>
+    <TextField hint="Team Name" col="1" row="0"> </TextField>
+  </GridLayout>
 </StackLayout>

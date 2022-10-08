@@ -31,8 +31,13 @@ export class ItemsComponent implements OnInit {
   }
 
   launchGame(event) {
-    this.itemService.launchGame(this.game).subscribe((data) => {
-      console.log(data);
-    });
+    this.itemService.launchGame(this.game).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 }
